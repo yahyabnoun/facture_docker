@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('facteurs', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id'); 
-            $table->string('name_facteur');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('produit_id')->nullable(); 
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('produit_id')->references('id')->on('produits');
+            $table->integer('quntite');
+            $table->integer('commande_prix');
+            $table->integer('prixtotal');
             $table->timestamps();
+
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-         
-            Schema::dropIfExists('facteurs');
-        
+        Schema::dropIfExists('users');
     }
 };
