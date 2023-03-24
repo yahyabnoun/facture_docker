@@ -12,4 +12,18 @@ class Produit extends Model
         'name_produits	',
         'produit_prix'
     ];
+
+
+    public function user() { 
+
+        return $this->hasManyThrough(User::class, Commande::class,'produit_id', 'id', 'id', 'user_id' ); 
+        
+        } 
+        
+    public function commande() { 
+        
+        return $this->hasOne(Commande::class);
+    }
+
+
 }

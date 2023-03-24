@@ -20,13 +20,15 @@ class CommandeFactory extends Factory
         $prix = fake()->numberBetween($min = 9, $max = 300) ;
         $quntite = fake()->numberBetween($min = 9, $max = 300) ;
         $prixtotal = $prix*$quntite;
+        $datebet = fake()->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null) ;
         return [
-            'user_id' => fake()->numberBetween($min = 1, $max = 10),
+            'user_id' => fake()->numberBetween($min = 1, $max = 5),
             'produit_id' => fake()->numberBetween($min = 1, $max = 5),
             // 'produit_id' => null,
             'quntite' => $quntite,
             'commande_prix' => $prix,
             'prixtotal' => $prixtotal,
+            'datebet' => $datebet,
 
         ];
     }

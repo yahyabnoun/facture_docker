@@ -15,4 +15,12 @@ class Commande extends Model
         'commande_prix',
         'prixtotal'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function produit()
+    {
+        return $this->belongsTo(Produit::class);
+    }
 }

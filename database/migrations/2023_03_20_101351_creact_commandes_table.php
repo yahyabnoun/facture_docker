@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commandes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id'); 
-            $table->unsignedBigInteger('produit_id')->nullable(); 
+            $table->id('commande_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('produit_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('produit_id')->references('id')->on('produits');
             $table->integer('quntite');
             $table->integer('commande_prix');
             $table->integer('prixtotal');
+            $table->date('datebet');
             $table->timestamps();
 
         });
