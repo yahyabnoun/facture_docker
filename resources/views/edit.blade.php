@@ -14,19 +14,11 @@
                         </div>
                     @endif
 
-                    <button type="button" class="btn btn-success mx-3 " ><a style="text-decoration: none"  class="text-light" href="{{url('/home')}}">afficher</a></button>
+                    <button type="button" class="btn btn-success mx-3 " ><a style="text-decoration: none"  class="text-light" href="{{url('/home')}}">Retour</a></button>
                     <div class="m-3 col-10" style="margin: auto 10px">
-                        <form  method="post">
+                        <form action="{{route('update',$commande[0]->commande_id)}}" method="post">
                           @csrf
-                          <label for="produits">Choose a produit:</label>
-
-                            {{-- <select name="produit_select" id="produits">
-                                @foreach ($produits as $produit)
-
-                                    <option name="{{$produit->id}}" value="{{$produit->id}}">{{$produit->name_produits}}</option>
-
-                                @endforeach
-                            </select> --}}
+                          @method('put')
                             <br>
                             {{$commande}}
                             <h4>{{ __('Nom : ') }}{{$commande[0]->name_produits}}</h4>

@@ -73,6 +73,18 @@ class HomeController extends Controller
          ]);
 
      }
+     public  function update(Request $request,$id)
+    {
+
+        DB::table('commandes')->where('commande_id',$id)->update([
+            'quntite'=>$request->Quntite,
+            'datebet'=>now()
+
+
+        ]);
+        return redirect('home');
+
+    }
 
     public function destroy(Request $request) {
         DB::table('commandes')->where('commande_id',$request->id)->delete();

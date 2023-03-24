@@ -49,6 +49,7 @@ Route::post('/ajouterproduit', [HomeController::class,'ajouterProduit'])->name('
 
 Route::get('/edit/{id}', [HomeController::class,'edit'])->name('edit');
 
+Route::put('/update/{id}', [HomeController::class,'update'])->name('update');
 
 Route::get('/destroy/{id}', [HomeController::class,'destroy'])->name('destroy');
 
