@@ -24,13 +24,27 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $totalsub=0;
+        $tax=3;
+        $deliver=58;
+        $total=0;
         $commandes = DB::table('commandes')
         ->join('produits', 'produits.id', '=', 'commandes.produit_id')
         ->where('commandes.user_id', '=', (Auth::user()->id))
         ->orderBy('datebet', 'desc')
         ->get();
+        foreach ($commandes as $commande) {
+            $totalsub+=$commande->prixtotal;
+        }
+        $total=$totalsub-($totalsub*($tax/100))-$deliver;
+
         return view('home')->with([
-            'commandes'=>$commandes
+            'commandes'=>$commandes,
+            'totalsub'=>$totalsub,
+            'tax'=>$tax,
+            'deliver'=>$deliver,
+            'total'=>$total,
+
         ]);
     }
 

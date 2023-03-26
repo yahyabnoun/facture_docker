@@ -17,9 +17,10 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'yahya',
+            'name' => 'Yahya bnoun',
             'email' => 'yahya@gmail.com',
             'age' => 23,
+            'number' => '+212 65 65 69 98',
             'adresse' => '12 E Maple Street Central Islip,ny, 11322 United States',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'email_verified_at' => now(),
